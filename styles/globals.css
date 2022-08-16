@@ -1,26 +1,131 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+
+  html, body{
+    @apply p-0 m-0 font-sans scroll-smooth
   }
-  body {
-    color: white;
-    background: black;
+
+  a{
+    @apply text-inherit
   }
+
+  main{
+    @apply w-full 
+  }
+
+  section{
+    @apply w-full h-fit p-10
+  }
+
+  button{
+    @apply rounded shadow font-semibold
+  }
+
+  h1{
+    @apply text-5xl
+  }
+
+  h2{
+    @apply text-4xl
+  }
+
+  h3{
+    @apply text-3xl
+  }
+
+  h4{
+    @apply text-2xl
+  }
+
+  h5{
+    @apply text-xl
+  }
+
+  h6{
+    @apply text-lg
+  }
+
+  form{
+    @apply w-full h-fit grid grid-cols-1 gap-3
+  }
+
+  fieldset{
+    @apply w-full grid grid-cols-1fr-2fr items-center
+  }
+
+  label{
+    @apply text-base font-medium capitalize
+  }
+
+  input{
+    @apply w-full h-10 p-5 rounded-md bg-white/50 border-2 border-gray-200
+  }
+
+  input::placeholder {
+    @apply text-slate-500
+  }
+
+  input:required{
+    @apply after:content-['*'] after:ml-0.5 after:text-red-500
+  }
+
+  input[type=radio]{
+    @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 
+  }
+
+  select {
+    @apply border-2 border-gray-200 rounded-md p-2
+  }
+
+
+}
+
+@layer components {
+
+  .main__bg{
+    @apply bg-cover bg-no-repeat bg-center
+  }
+
+  .icon {
+    @apply w-6 h-6 text-black
+  }
+
+  /* Button Styles  */
+
+  .dash__btn__primary{
+    @apply w-full h-fit py-2 px-2 flex justify-between items-center
+  }
+
+  .btn__icon{
+    @apply w-fit flex justify-start gap-3 items-center
+  }
+
+  .primary__btn{
+    @apply w-fit h-fit py-2 px-6 bg-main-green
+  }
+
+  .secondary__btn{
+    @apply w-fit h-fit py-2 px-6 border-2 border-main-green
+  }
+
+  .tetiary__btn{
+    @apply w-fit h-fit py-2 px-6 text-main-green
+  }
+
+  .cancel__btn{
+    @apply w-fit py-2 px-8 text-red-500 
+  }
+
+  .tab__btn{
+    @apply w-fit h-fit py-2 px-5 text-center shadow-none
+  }
+
 }
