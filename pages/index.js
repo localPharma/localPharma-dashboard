@@ -1,11 +1,16 @@
 import Head from 'next/head'
+import { useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Button from '../src/Components/Button'
+import { AuthContext } from '../src/Components/Context'
 import OrderCard from '../src/Components/OrderCard'
 
-function Index() {
+export default function Index() {
 
   const [tab, setTab] = useState("New")
+  const [auth] = useContext(AuthContext)
 
+  const router = useRouter()
 
   const orders = {
     New: [
@@ -86,6 +91,12 @@ function Index() {
     }
   }
 
+  useEffect(() => {
+    if (!auth) {
+      router.push('/authentication')
+    }
+  }, [])
+
   return (
     <div className='' >
       <Head>
@@ -125,4 +136,3 @@ function Index() {
   )
 }
 
-export default Index
