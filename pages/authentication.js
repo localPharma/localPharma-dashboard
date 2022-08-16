@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Head from 'next/head'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { AuthContext } from '../src/Components/Context'
 import SignUpForm from '../src/Components/SignUpForm'
 import LoginForm from '../src/Components/LoginForm'
@@ -30,11 +30,24 @@ function Authentication() {
         switch (tab) {
             case "Sign Up":
                 return (
-                    <SignUpForm handleForm={handleForm} />
+                    <AnimatePresence>
+                        {
+                            tab === "Sign Up" && (
+                                <SignUpForm handleForm={handleForm} />
+                            )
+                        }
+                    </AnimatePresence>
                 )
             case "Sign In":
                 return (
-                    <LoginForm handleForm={handleForm} />
+                    <AnimatePresence>
+                        {
+                            tab === "Sign In" && (
+                                <LoginForm handleForm={handleForm} />
+                            )
+                        }
+                    </AnimatePresence>
+
                 )
             default:
                 break;
@@ -49,9 +62,9 @@ function Authentication() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <motion.main 
-                layout 
-                data-isOpen={tab === "Sign Up"} 
+            <motion.main
+                layout
+                data-isOpen={tab === "Sign Up"}
                 className='p-10 flex flex-col items-center gap-5 w-full h-fit bg-white relative rounded-md'  >
                 <h2>
                     {tab === "Sign In" ? "Sign In" : "Sign Up"}
