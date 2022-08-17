@@ -1,4 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../Firebase/firebaseConfig'
+import { useRouter } from 'next/router'
+
+
 
 export const AuthContext = createContext()
 export const ScrollContext = createContext()
@@ -7,7 +12,9 @@ function Context({ children }) {
 
     const [showNav, setShowNav] = useState(false)
     const [page, setPage] = useState("Order")
-    const [auth, setAuth] = useState(false)
+    const [user, setUser] = useState(null)
+
+    const router = useRouter()
 
 
     useEffect(() => {
@@ -22,8 +29,51 @@ function Context({ children }) {
         }
     }, [showNav])
 
+
+    // Firebase authentication 
+    const signUp = (email, password, cb) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log(userCredential)
+                setUser(userCredential)
+                alert("You are authenticated !")
+                cb()
+                router.push('/orders')
+            })
+            .catch((error) => {
+                console.log(error.code)
+                alert(error.code)
+                cb()
+            })
+    }
+
+    const signIn = (email, password, cb) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setUser(userCredential.user)
+                alert("You are signed in")
+                cb()
+                router.push('/orders')
+            })
+            .catch((error) => {
+                alert(error.code)
+                cb()
+            })
+    }
+
+    const logOut = () => {
+        signOut(auth).then(() => {
+            setUser(null)
+            router.push('/')
+        }).catch((error) => (
+            alert(error.message)
+        ))
+    }
+
+
+
     return (
-        <AuthContext.Provider value={[auth, setAuth]}>
+        <AuthContext.Provider value={{ signUp, signIn, logOut, user }}>
             <NavContext.Provider value={[page, setPage]}>
                 <ScrollContext.Provider value={[showNav, setShowNav]}>
                     {children}

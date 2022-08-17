@@ -1,7 +1,17 @@
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useContext, useEffect } from 'react'
 import Button from '../src/Components/Button'
+import { AuthContext } from '../src/Components/Context'
 
 function Setting() {
+    const { user } = useContext(AuthContext)
+
+    const router = useRouter()
+    useEffect(() => {
+        if (user === null) {
+            router.push('/')
+        }
+    }, [])
     return (
         <div>
             <main className='h-50vh bg-pharmacy main__bg  '  >
