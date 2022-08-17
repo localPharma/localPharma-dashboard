@@ -112,16 +112,16 @@ function Authentication() {
                 <div>
                     {
                         tab === "Sign Up" ? (
-                            <p className='flex gap-2' onClick={() => setTab("Sign In")} >
+                            <p className='flex gap-2 text-gray-400 font-semibold' onClick={() => setTab("Sign In")} >
                                 Signed up already ?
-                                <span>
+                                <span className='text-black' >
                                     Sign In
                                 </span>
                             </p>
                         ) : (
-                            <p className='flex gap-2' onClick={() => setTab("Sign Up")} >
+                            <p className='flex gap-2  text-gray-400 font-semibold' onClick={() => setTab("Sign Up")} >
                                 Not a customer yet ?
-                                <span >
+                                <span className='text-black' >
                                     Sign Up
                                 </span>
                             </p>
