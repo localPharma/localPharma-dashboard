@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ArchiveIcon, BellIcon, ChatAltIcon, CogIcon, MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/outline'
+import { ArchiveIcon, BellIcon, ChatAltIcon, CogIcon, LogoutIcon, MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/outline'
 import { AnimatePresence, motion } from 'framer-motion'
-import { NavContext, ScrollContext } from './Context'
+import { AuthContext, NavContext, ScrollContext } from './Context'
 import AnchorLink from './AnchorLink'
 import Button from './Button'
 import messagesArr from '../Firebase/messagesArr'
@@ -15,6 +15,8 @@ function Navigation() {
     const [showMessages, setShowMessages] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
     const [show, handleShow] = useState(false)
+
+    const { logOut } = useContext(AuthContext)
 
     useEffect(() => {
         const myFunc = () => {
@@ -129,6 +131,18 @@ function Navigation() {
                                 <SideNaveBtn title="setting" >
                                     <CogIcon className='icon' />
                                 </SideNaveBtn>
+                                <Button
+                                    style={`dash__btn__primary shadow-none self-end `}
+                                    click={() => logOut()}
+
+                                >
+                                    <div className="btn__icon" >
+                                        <LogoutIcon className='icon' />
+                                        <p>
+                                            Log Out
+                                        </p>
+                                    </div>
+                                </Button>
                             </div>
                         </motion.nav>
                     )
