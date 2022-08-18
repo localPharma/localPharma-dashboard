@@ -5,7 +5,7 @@ import { AuthContext, NavContext, ScrollContext } from './Context'
 import AnchorLink from './AnchorLink'
 import Button from './Button'
 import messagesArr from '../Firebase/messagesArr'
-
+import MessageCard from './MessageCard'
 
 
 function Navigation() {
