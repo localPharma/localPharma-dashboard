@@ -129,7 +129,7 @@ export default function Index() {
             Cancelled
           </Button>
         </div>
-        <div className='w-full h-fit bg-blue-400 flex flex-col justify-start itc ' >
+        <div className='w-full h-fit flex flex-col justify-start items-center ' >
           {handleTab()}
         </div>
       </main>

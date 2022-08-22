@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from '../src/Components/Button'
 import AnchorLink from '../src/Components/AnchorLink'
+import { AuthContext } from '../src/Components/Context'
 
 function Index() {
+  const { user } = useContext(AuthContext)
+  console.log(user)
   return (
     <div className='w-full h-screen bg-gray-300/30' >
       <Head>
@@ -20,7 +23,7 @@ function Index() {
           <h3 className='font-bold '>
             Handle all your Pharmacy sales and transaction here
           </h3>
-          <AnchorLink route="/authentication">
+          <AnchorLink route={` ${user === null ? "/authentication" : "/orders"} `}>
             <Button style="primary__btn" >
               Get Started
             </Button>
