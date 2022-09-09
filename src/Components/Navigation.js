@@ -59,7 +59,7 @@ function Navigation() {
 
     return (
         <>
-            <nav className={`w-full h-fit flex justify-between py-3 px-10 fixed top-0 left-0 z-10 ${show ? " bg-white backdrop-blur shadow-md shadow-white" : "bg-transparent"}"`} >
+            <nav className={`w-full h-14 flex justify-between items-center py-3 px-10 fixed top-0 left-0 z-10 ${show ? " bg-white backdrop-blur shadow-md shadow-black" : "bg-transparent"}"`} >
                 <div className="flex gap-5" >
                     <div>
                         <AnchorLink route="/">
@@ -121,9 +121,6 @@ function Navigation() {
                             <div className="flex flex-col gap-2" >
                                 <SideNaveBtn title="orders" number="0" >
                                     <ShoppingCartIcon className='icon' />
-                                </SideNaveBtn>
-                                <SideNaveBtn title="users" number="0" >
-                                    <UserIcon className='icon' />
                                 </SideNaveBtn>
                                 <SideNaveBtn title="products" number="0" >
                                     <ArchiveIcon className='icon' />
