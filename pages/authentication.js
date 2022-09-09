@@ -36,7 +36,7 @@ function Authentication() {
         if (password.value === confirmpassword.value) {
             signUp(email.value, password.value, () => setLoading(false))
         } else {
-            alert("Both Passwords must macth")
+            alert("Both Passwords must match")
             confirmpassword.value = ""
             password.value = ''
         }
