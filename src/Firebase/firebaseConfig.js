@@ -5,7 +5,6 @@
 // // TODO: Add SDKs for Firebase products that you want to use
 // // https://firebase.google.com/docs/web/setup#available-libraries
 
-<<<<<<< HEAD
 // // Your web app's Firebase configuration
 // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // const firebaseConfig = {
@@ -17,7 +16,7 @@
 //   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
 //   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 // };
-=======
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -29,7 +28,7 @@ const firebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
->>>>>>> dfa97485dddd82f1d3d38bfb00673c7e8cda162d
+// dfa97485dddd82f1d3d38bfb00673c7e8cda162d
 
 // // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
